@@ -52,7 +52,7 @@ def main(test_dataset, dataset_name, meta_save_path, model_name, conflict_type, 
     with open(test_dataset, "r", encoding="utf-8") as f:
         dataset = json.load(f) 
 
-    output_path = os.path.join(meta_save_path, dataset_name, f"output_from_{model_name}.jsonl")
+    output_path = os.path.join(meta_save_path, dataset_name, f"{eval_type}_{model_name}_{conflict_type}.jsonl")
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     if os.path.exists(output_path):
