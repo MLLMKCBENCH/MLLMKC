@@ -35,7 +35,7 @@ def get_query_instruction_prompt(dataset, eval_type):
         'mcq_query': "Answer the letter of the option directly from the given option based on the provided chart information.Note that only the option labels are answered."}
     
     if eval_type == 'openqa':
-        return dataset['open_query'], instruction_prompt['openqa_query']
+        return dataset['question'], instruction_prompt['openqa_query']
     elif eval_type == 'mcq':
         return dataset['mcq_query'], instruction_prompt['mcq_query']
     else:
