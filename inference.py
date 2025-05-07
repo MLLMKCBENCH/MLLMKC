@@ -55,9 +55,8 @@ def get_query_instruction_prompt(dataset, eval_type):
     else:
         return None, "Invalid eval_type. Please choose 'openqa' or 'mcq'."
 
-def process_item(item, final_message, model_name):
+def process_item(item, final_message, model_name,qa_agent: OpenVLM):
     idx = item['ID']
-    qa_agent = OpenVLM(model_type=model_name)
     success, idx, answer = qa_agent.ask_vlm(final_message, idx)
     return success, idx, answer
 
@@ -73,27 +72,36 @@ def main(test_dataset, dataset_name, meta_save_path, model_name, conflict_type, 
         with open(output_path, "r") as fin:
             done_id = [json.loads(data)['ID'] for data in fin.readlines()]
             dataset = [data for data in dataset if data['ID'] not in done_id]
+    
+
+    qa_agent = OpenVLM(model_type=model_name)
+    from tqdm import tqdm
+    # import json
 
     with open(output_path, "a", encoding="utf-8") as fout:
-        for item in dataset:
-            conflict_messsage,image = get_conflict_message(item, conflict_type)  
+        for item in tqdm(dataset, desc="Processing items"):
+            conflict_messsage, image = get_conflict_message(item, conflict_type)  
             query_prompt, instruction = get_query_instruction_prompt(item, eval_type)
-            if oringin=='t':
-                final_message =[query_prompt, instruction]  +[image]
-            if oringin=='f':
-                final_message =conflict_messsage+[query_prompt, instruction]  +[image]
+            
+            if oringin == 't':
+                final_message = [query_prompt, instruction] + [image]
+            if oringin == 'f':
+                final_message = conflict_messsage + [query_prompt, instruction] + [image]
+            
             print('------------------------------------------')
             print('final_message:', final_message)
             print('------------------------------------------')
 
-            success, idx, answer = process_item(item, final_message, model_name)
+            success, idx, answer = process_item(item, final_message, model_name, qa_agent)
             print('------------------------------------------')
             print("请注意模型的回答如下：")
             print(answer)
+            
             item['success'] = success
             item['prediction'] = answer
 
             fout.write(json.dumps(item, ensure_ascii=False) + "\n")
+
 
 if __name__ == "__main__":
 
