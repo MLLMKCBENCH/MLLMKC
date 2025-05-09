@@ -9,7 +9,7 @@ MODEL_NAME="InternVL3-8B"
 python inference.py \
     --test_dataset "ER.json" \
     --dataset_name ER \
-    --meta_save_path original \
+    --meta_save_path output \
     --model_name "$MODEL_NAME" \
     --conflict_type ee \
     --eval_type openqa \
@@ -18,7 +18,7 @@ python inference.py \
 python inference1.py \
     --test_dataset "people_knowledge.json" \
     --dataset_name people_knowledge \
-    --meta_save_path original \
+    --meta_save_path output \
     --model_name "$MODEL_NAME" \
     --conflict_type ee \
     --eval_type openqa \
@@ -28,7 +28,7 @@ python inference1.py \
 python inference1.py \
     --test_dataset "people_knowledge.json" \
     --dataset_name people_knowledge \
-    --meta_save_path original \
+    --meta_save_path output \
     --model_name "$MODEL_NAME" \
     --conflict_type ee \
     --eval_type openqa \
@@ -43,7 +43,7 @@ python inference1.py --test_dataset "people_knowledge.json" --dataset_name peopl
 python inference1.py \
     --test_dataset "logo_knowledge.json" \
     --dataset_name logo_knowledge \
-    --meta_save_path original \
+    --meta_save_path output \
     --model_name "$MODEL_NAME" \
     --conflict_type ee \
     --eval_type openqa \
@@ -53,7 +53,7 @@ python inference1.py \
 python inference1.py \
     --test_dataset "logo_knowledge.json" \
     --dataset_name logo_knowledge \
-    --meta_save_path original \
+    --meta_save_path output \
     --model_name "$MODEL_NAME" \
     --conflict_type ee \
     --eval_type openqa \
@@ -63,7 +63,7 @@ python inference1.py \
 python inference1.py \
     --test_dataset "logo_knowledge.json" \
     --dataset_name logo_knowledge \
-    --meta_save_path original \
+    --meta_save_path output \
     --model_name "$MODEL_NAME" \
     --conflict_type ee \
     --eval_type openqa \
@@ -73,7 +73,7 @@ python inference1.py \
 python inference.py \
     --test_dataset "IS.json" \
     --dataset_name IS \
-    --meta_save_path original \
+    --meta_save_path output \
     --model_name "$MODEL_NAME" \
     --conflict_type ee \
     --eval_type openqa \
@@ -82,7 +82,7 @@ python inference.py \
 python inference2.py \
     --test_dataset "ED.json" \
     --dataset_name ED \
-    --meta_save_path original \
+    --meta_save_path output \
     --model_name "$MODEL_NAME" \
     --conflict_type ee \
     --eval_type openqa \
