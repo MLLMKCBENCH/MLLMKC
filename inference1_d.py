@@ -110,7 +110,7 @@ def get_conflict_message(item, conflict_type,ty):
 
 def get_query_instruction_prompt(dataset, eval_type,tye='temporal'):
     instruction_prompt = {
-        'openqa_query': "Read the external documentation below carefully and answer yes or no if there is a conflict with what you remember.",
+        'openqa_query': "Read the following document carefully and answer No if it does not agree with what you remember, and Yes if it does.",
         'mcq_query': "Answer with the option's letter from the given choices directly based on the context and the image."}
     
     if eval_type == 'openqa':

@@ -31,7 +31,7 @@ def get_conflict_message(item, conflict_type):
 
 def get_query_instruction_prompt(dataset, eval_type):
     instruction_prompt = {
-        'openqa_query': "Read the external documentation below carefully and answer yes or no if there is a conflict with what you remember.",
+        'openqa_query': "Read the following document carefully and answer No if it does not agree with what you remember, and Yes if it does.",
         'mcq_query': "Answer the letter of the option directly from the given option based on the provided chart information.Note that only the option labels are answered."}
     
     if eval_type == 'openqa':
