@@ -70,7 +70,7 @@ def main(test_dataset, dataset_name, meta_save_path, model_name, conflict_type, 
                 if conflict_type=='ie':
                     final_message = [instruction]  +["Here is the additional table information provided:"]+[dis_image1]
                 if conflict_type=='ee':
-                    final_message = [query_prompt, instruction]  +[dis_image1,dis_image2]
+                    final_message = [instruction]  +["Here is the additional table information provided:"]+[correct_image]
             if oringin=="t":
                     final_message = [query_prompt, instruction]  +[correct_image]
             print('------------------------------------------')

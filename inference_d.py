@@ -33,7 +33,8 @@ def get_conflict_message(item, conflict_type):
         external_image2 = item["image_path"][2]
         external_text1 = item["mis_description"]["incorrect_description_1"]
         external_text2 = item["mis_description"]["incorrect_description_2"]
-        conflict_message.extend([external_image1, external_text1,external_image2, external_text2])
+        correct_text = item["description"]
+        conflict_message.extend([external_image1, correct_text])
                     
     else:
         raise ValueError("conflict_type must be 'ie' or 'visual_conflict'")

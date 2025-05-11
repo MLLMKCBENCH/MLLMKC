@@ -28,28 +28,32 @@ def get_conflict_message(item, conflict_type,ty):
             external_text = item["mis_knowledge"]["Temporal_error"]["mis_knowledge1"]
             external_image1 = item["image_path"][2]
             external_text1 = item["mis_knowledge"]["Temporal_error"]["mis_knowledge2"]
-            conflict_message.extend([external_image, external_text,external_image1,external_text1])
+            correct_text = item["knowledge"]
+            conflict_message.extend([external_image,correct_text])
         if ty=='location':
             question_image = item["image_path"][0]
             external_image = item["image_path"][1]
             external_text = item["mis_knowledge"]["location_error"]["mis_knowledge1"]
             external_image1 = item["image_path"][2]
             external_text1 = item["mis_knowledge"]["location_error"]["mis_knowledge2"]
-            conflict_message.extend([external_image, external_text,external_image1,external_text1])
+            correct_text = item["knowledge"]
+            conflict_message.extend([external_image,correct_text])
         if ty=='Career':
             question_image = item["image_path"][0]
             external_image = item["image_path"][1]
             external_text = item["mis_knowledge"]["Career_error"]["mis_knowledge1"]
             external_image1 = item["image_path"][2]
             external_text1 = item["mis_knowledge"]["Career_error"]["mis_knowledge2"]
-            conflict_message.extend([external_image, external_text,external_image1,external_text1])
+            correct_text = item["knowledge"]
+            conflict_message.extend([external_image,correct_text])
         if ty=='time':
             question_image = item["image_path"][0]
             external_image = item["image_path"][1]
             external_text = item["mis_knowledge"]["time_error"]["mis_knowledge1"]
             external_image1 = item["image_path"][2]
             external_text1 = item["mis_knowledge"]["time_error"]["mis_knowledge2"]
-            conflict_message.extend([external_image, external_text,external_image1,external_text1])
+            correct_text = item["knowledge"]
+            conflict_message.extend([external_image,correct_text])
         if ty=='creator':
             question_image = item["image_path"][0]
             external_image = item["image_path"][1]

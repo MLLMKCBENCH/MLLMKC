@@ -151,7 +151,7 @@ def main(test_dataset, dataset_name, meta_save_path, model_name, conflict_type, 
         with open(output_path, "r") as fin:
             done_id = [json.loads(data)['ID'] for data in fin.readlines()]
             dataset = [data for data in dataset if data['ID'] not in done_id]
-    qa_agent = OpenVLM(model_type=model_name)
+    
     from tqdm import tqdm
     # import json
 
