@@ -74,15 +74,14 @@ def get_conflict_message(item, conflict_type,ty):
             external_image = item["image_path"][1]
             external_text = item["mis_knowledge"]["Temporal_error"]["mis_knowledge1"]
             sentences = [s.strip() for s in external_text.split('. ') if s]
-            m =sentences[0]
-            print('----------------------')
-            print(m)
+            m = sentences[0] if len(sentences) > 2 else ""
             conflict_message.extend([external_image, m])
         if ty=='location':
             question_image = item["image_path"][0]
             external_image = item["image_path"][1]
             external_text = item["mis_knowledge"]["location_error"]["mis_knowledge1"]
             sentences = [s.strip() for s in external_text.split('. ') if s]
+            m = sentences[1] if len(sentences) > 2 else ""
             m =sentences[1]
             conflict_message.extend([external_image, m])
         if ty=='Career':
@@ -90,6 +89,7 @@ def get_conflict_message(item, conflict_type,ty):
             external_image = item["image_path"][1]
             external_text = item["mis_knowledge"]["Career_error"]["mis_knowledge1"]
             sentences = [s.strip() for s in external_text.split('. ') if s]
+            m = sentences[2] if len(sentences) > 2 else ""
             m =sentences[2]
             conflict_message.extend([external_image, m])
         if ty=='time':
@@ -97,21 +97,21 @@ def get_conflict_message(item, conflict_type,ty):
             external_image = item["image_path"][1]
             external_text = item["mis_knowledge"]["time_error"]["mis_knowledge1"]
             sentences = [s.strip() for s in external_text.split('. ') if s]
-            m =sentences[0]
+            m = sentences[0] if len(sentences) > 2 else ""
             conflict_message.extend([external_image, m])
         if ty=='creator':
             question_image = item["image_path"][0]
             external_image = item["image_path"][1]
             external_text = item["mis_knowledge"]["creator_error"]["mis_knowledge1"]
             sentences = [s.strip() for s in external_text.split('. ') if s]
-            m =sentences[1]
+            m = sentences[1] if len(sentences) > 2 else ""
             conflict_message.extend([external_image, m])
         if ty=='content':
             question_image = item["image_path"][0]
             external_image = item["image_path"][1]
             external_text = item["mis_knowledge"]["content_error"]["mis_knowledge1"]
             sentences = [s.strip() for s in external_text.split('. ') if s]
-            m = sentences[2]
+            m = sentences[2] if len(sentences) > 2 else ""
             conflict_message.extend([external_image, m])
                     
     else:
@@ -180,6 +180,10 @@ def main(test_dataset, dataset_name, meta_save_path, model_name, conflict_type, 
         for item in tqdm(dataset, desc="Processing items"):
             conflict_messsage,image = get_conflict_message(item, conflict_type,ty)  
             query_prompt, instruction = get_query_instruction_prompt(item, eval_type,ty)
+            ss = conflict_messsage[1]
+            print(ss)
+            if ss =='':
+                continue
             if oringin=="t":
                 final_message = [query_prompt, instruction]  +[image]
             if oringin=="f":
