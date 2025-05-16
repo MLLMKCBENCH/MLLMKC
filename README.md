@@ -89,9 +89,9 @@ pip install -r requirements.txt
 
 
 ## 💥Inference
-**Download the benchmark model weights in advance:** And in VLMEvalKit/vlmeval/config.py change local weight inside
+**If you want to use local model weights, download them ahead of time:** And in VLMEvalKit/vlmeval/config.py change local weight inside
 
-**Began to replace sh file to review the model name, name and VLMEvalKit vlmeval/config. Py offer is consistent with the name of the file.**
+**Began to replace sh file to review the model name, name and VLMEvalKit vlmeval/config.py offer is consistent with the name of the file.**
 
 For non-GPT models：
 **For The original answer(mcq):**
