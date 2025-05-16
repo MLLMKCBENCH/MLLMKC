@@ -5,10 +5,9 @@
 - [🌟 Overview](#overview)
 - [🤗 Dataset](#-dataset)
 - [🛠️ Requirements and Installation](#️-requirements-and-installation)
-- [💥 Training](#training)
-- [✏️ Citation](#️-citation)
-- [⭐ Star History](#star-history)
-- [🎉Contributors](#contributors)
+- [💥 Inference](#training)
+
+
 
 
 ## 🔔 News
