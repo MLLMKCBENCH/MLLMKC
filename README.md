@@ -25,7 +25,7 @@
 
 **TL;DR:** We propose <span style="color:brown">**MLLMKC**</span>, a challenging benchmark for evaluating factual multi-modal knowledge conflict.
 
-<img src="figs\fig2.png" width="900px">
+<img src="figs\overview.png" width="900px">
 
 <p align="justify">
     <strong><span style="color:black">Overview</span> of the <span style="color:brown">MLMMKC</span> dataset. Our contribution can be summarized as follows:</strong>
