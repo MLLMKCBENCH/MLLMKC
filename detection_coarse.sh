@@ -1,11 +1,10 @@
 #!/bin/bash
 
-# 定义默认路径
-#实体识别的路径
+
 MODEL_NAME="Qwen2.5-VL-3B-Instruct"
 
 
-# 运行实体识别
+
 python inference_d.py \
     --test_dataset "ER.json" \
     --dataset_name ER \
