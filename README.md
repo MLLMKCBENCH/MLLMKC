@@ -49,18 +49,14 @@ MLLMKC
 ## 🛠️ Requirements and Installation
 
 ```text
-# clone MMKE-Bench
+# clone MMKC-Bench
 git clone https://github.com/MLLMKCBENCH/MLLMKC.git
 
-cd MLLMKC
-
 # create conda env
+cd MLLMKC
 conda create -n mllmkc python=3.10
-
 cd VLMEvalKit
-
 pip install -r requirements.txt
-
 ```
 
 
