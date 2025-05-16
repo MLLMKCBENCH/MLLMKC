@@ -19,7 +19,7 @@
 
 ## 🌟Overview
 
-**TL;DR:** We propose <span style="color:brown">**MLLMKC**</span>, a challenging benchmark for evaluating factual multi-modal knowledge conflict.
+**TL;DR:** we introduce <span style="color:brown">**MLLMKC**</span>, a  Multi-Modal Knowledge Conflict benchmark, designed to analyze factual knowledge conflict under both context-memory and inter-context scenarios.
 
 <img src="figs\overview.png" width="900px">
 
