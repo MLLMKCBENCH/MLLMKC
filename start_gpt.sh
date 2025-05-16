@@ -77,14 +77,6 @@ python inference_gpt.py \
     --eval_type mcq \
     --oringin t
 
-python inference2_gpt.py \
-    --test_dataset "ED.json" \
-    --dataset_name ED \
-    --meta_save_path original \
-    --model_name "$MODEL_NAME" \
-    --conflict_type ee \
-    --eval_type mcq \
-    --oringin t
 
 #开放问答原始知识
 python inference_gpt.py \
@@ -159,14 +151,7 @@ python inference_gpt.py \
     --eval_type openqa \
     --oringin t
 
-python inference2_gpt.py \
-    --test_dataset ED.json\
-    --dataset_name ED \
-    --meta_save_path original \
-    --model_name "$MODEL_NAME" \
-    --conflict_type ee \
-    --eval_type openqa \
-    --oringin t
+
 
 #封闭回答的内外冲突
 python inference_gpt.py \
@@ -249,14 +234,7 @@ python inference_gpt.py \
     --eval_type mcq \
     --oringin f
 
-python inference2_gpt.py \
-    --test_dataset "ED.json" \
-    --dataset_name ED \
-    --meta_save_path output \
-    --model_name "$MODEL_NAME" \
-    --conflict_type ie \
-    --eval_type mcq \
-    --oringin f
+
 
 
 # 封闭回答的外外冲突
@@ -331,14 +309,7 @@ python inference_gpt.py \
     --eval_type mcq \
     --oringin f
 
-python inference2_gpt.py \
-    --test_dataset "ED.json" \
-    --dataset_name ED \
-    --meta_save_path output \
-    --model_name "$MODEL_NAME" \
-    --conflict_type ee \
-    --eval_type mcq \
-    --oringin f
+
 
 
 # 开放回答的内外冲突
@@ -414,14 +385,7 @@ python inference_gpt.py \
     --eval_type openqa \
     --oringin f
 
-python inference2_gpt.py \
-    --test_dataset "ED.json" \
-    --dataset_name ED \
-    --meta_save_path output \
-    --model_name "$MODEL_NAME" \
-    --conflict_type ie \
-    --eval_type openqa \
-    --oringin f
+
 
 # 开放回答的外外冲突
 python inference_gpt.py \
@@ -496,11 +460,4 @@ python inference_gpt.py \
     --eval_type openqa \
     --oringin f
 
-python inference2_gpt.py \
-    --test_dataset "ED.json" \
-    --dataset_name ED \
-    --meta_save_path output \
-    --model_name "$MODEL_NAME" \
-    --conflict_type ee \
-    --eval_type openqa \
-    --oringin f
+

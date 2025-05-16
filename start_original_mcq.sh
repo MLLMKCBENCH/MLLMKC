@@ -78,11 +78,3 @@ python inference.py \
     --eval_type mcq \
     --oringin t
 
-python inference2.py \
-    --test_dataset "ED.json" \
-    --dataset_name ED \
-    --meta_save_path original \
-    --model_name "$MODEL_NAME" \
-    --conflict_type ee \
-    --eval_type mcq \
-    --oringin t

@@ -47,14 +47,7 @@ python inference_d.py \
     --eval_type openqa \
     --oringin f
 
-python inference2_d.py \
-    --test_dataset "ED.json" \
-    --dataset_name ED \
-    --meta_save_path detection \
-    --model_name "$MODEL_NAME" \
-    --conflict_type ee \
-    --eval_type openqa \
-    --oringin f
+
 
 python inference_d.py \
     --test_dataset "ER.json" \
@@ -135,11 +128,3 @@ python inference_d.py \
     --eval_type openqa \
     --oringin f
 
-python inference2_d.py \
-    --test_dataset "ED.json" \
-    --dataset_name ED \
-    --meta_save_path detection \
-    --model_name "$MODEL_NAME" \
-    --conflict_type ie \
-    --eval_type openqa \
-    --oringin f
