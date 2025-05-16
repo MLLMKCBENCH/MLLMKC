@@ -2,7 +2,7 @@
 
 # 定义默认路径
 #实体识别的路径
-MODEL_NAME="Qwen2.5-VL-3B-Instruct"
+MODEL_NAME="gpt-4o-mini"
 
 
 #封闭问答的原始知识
