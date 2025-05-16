@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# 定义默认路径
-#实体识别的路径
+
 MODEL_NAME="gpt-4o-mini"
 
 
-#封闭问答的原始知识
 python inference_gpt.py \
     --test_dataset "ER.json" \
     --dataset_name ER \
