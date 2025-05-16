@@ -16,7 +16,7 @@
 
 * **[2025.5.16]**  **Code** is available now!
 
-* **[2025.5.16]**  We release the **MMKE-Bench dataset** at 🤗 [Huggingface Dataset](https://huggingface.co/datasets/starjyf/MLLMKC-dataset).
+* **[2025.5.16]**  We release the **MMKE-Bench dataset** at 🤗 [Huggingface Dataset](https://huggingface.co/datasets/starjyf/MLLMKC-datasets).
 
 
 
@@ -56,7 +56,7 @@ We introduce <strong><span style="color:brown">MMKE-Bench</span></strong>, a ben
 </p>
 
 
-You can download **MMKE-Bench data** 🤗 [Huggingface Dataset](https://huggingface.co/datasets/starjyf/MLLMKC-dataset). And the expected structure of files is:
+You can download **MMKE-Bench data** 🤗 [Huggingface Dataset](https://huggingface.co/datasets/starjyf/MLLMKC-datasets). And the expected structure of files is:
 
 ```text
 MLLMKC
