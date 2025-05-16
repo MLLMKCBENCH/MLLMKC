@@ -58,7 +58,7 @@ pip install -r requirements.txt
 ## 💥Inference
 **Note: If you want to use local model weights, download them before running experiments:**, and in VLMEvalKit/vlmeval/config.py change the local weight path inside
 
-**Begin to replace the following .sh file to revise the MODEL_NAME like "InternVL3-8B", name and VLMEvalKit vlmeval/config.py offer is consistent with the name of the file.**
+**Begin to replace the following .sh file to revise the MODEL_NAME like "InternVL3-8B" to be consistent with the name in VLMEvalKit vlmeval/config.py.**
 
 For non-GPT models
 
