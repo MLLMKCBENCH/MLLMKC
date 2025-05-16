@@ -96,13 +96,6 @@ if __name__ == "__main__":
             ie_file = change_path_ie(ee_file)
             print(f'{model_name}在实体识别内外冲突下的结果为:')
             os.system(f"python  evaluation_er.py  --file_a {file_list[i]} --file_b {ie_file} --conflict_type ie")
-        if types =='ED':
-            ee_file = change_path(file_list[i])
-            print(f'{model_name}在图表数据外外冲突下的结果为:')
-            os.system(f"python  evaluation_ed.py  --file_a {file_list[i]} --file_b {ee_file} --conflict_type ee")
-            ie_file = change_path_ie(ee_file)
-            print(f'{model_name}在图表数据内外冲突下的结果为:')
-            os.system(f"python  evaluation_ed.py  --file_a {file_list[i]} --file_b {ie_file} --conflict_type ie")
         if types =='IS':
             ee_file = change_path(file_list[i])
             print(f'{model_name}在图像语义外外冲突下的结果为:')
