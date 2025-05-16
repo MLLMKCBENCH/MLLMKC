@@ -71,7 +71,7 @@ bash start_original_mcq.sh
 bash start_original_open.sh
 ```
 
-**For the internal and external conflicts answer:**
+**For the context-memory conflicts answer:**
 ```shell
 # Mutl-choise question format
 bash start_mcq_ie.sh
@@ -80,7 +80,7 @@ bash start_mcq_ie.sh
 bash start_open_ie.sh
 ```
 
-**For the external and external conflicts answer:**
+**For the inter-context conflicts answer:**
 ```shell
 # Mutl-choise question format
 bash start_mcq_ee.sh
