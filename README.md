@@ -7,8 +7,6 @@
 - [🛠️ Requirements and Installation](#️-requirements-and-installation)
 - [💥 Inference](#training)
 - [💥 Evaluation](#training)
-- [⭐ Star History](#star-history)
-
 
 
 ## 🔔 News
@@ -19,14 +17,11 @@
 * **[2025.5.16]**  We release the **MMKE-Bench dataset** at 🤗 [Huggingface Dataset](https://huggingface.co/datasets/starjyf/MLLMKC-datasets).
 
 
-
-
 ## 🌟Overview
 
 **TL;DR:** We propose <span style="color:brown">**MLLMKC**</span>, a challenging benchmark for evaluating factual multi-modal knowledge conflict.
 
 <img src="figs\overview.png" width="900px">
-
 
 </p>
 
@@ -67,51 +62,47 @@ pip install -r requirements.txt
 
 For non-GPT models
 
-**For The original answer(mcq):**
+**For the original answer:**
 ```shell
+# MCQ
 bash start_original_mcq.sh
-```
 
-**For The internal and external conflicts answer(mcq):**
-```shell
-bash start_mcq_ie.sh
-```
-
-**For The external and external conflicts answer(mcq):**
-```shell
-bash start_mcq_ee.sh
-```
-
-**For The original answer(openqa):**
-```shell
+# OpenQA
 bash start_original_open.sh
 ```
 
-**For The internal and external conflicts answer(openqa):**
+**For the internal and external conflicts answer:**
 ```shell
+# MCQ
+bash start_mcq_ie.sh
+
+# OpenQA
 bash start_open_ie.sh
 ```
 
-**For The external and external conflicts answer(openqa):**
+**For the external and external conflicts answer:**
 ```shell
+# MCQ
+bash start_mcq_ee.sh
+
+# OpenQA
 bash start_open_ee.sh
 ```
 
-For GPT models
-
-**For The external and external conflicts answer(openqa):**
+**For GPT models:**
 ```shell
 bash start_gpt.sh
 ```
 
-**For Coarse-grained conflict detection:**
+**For conflict detection:**
 ```shell
-bash detection.sh
+# Coarse-grained conflict detection
+bash detection_coarse.sh
+
+# Fine-grained conflict detection
+bash detection_fine.sh
 ```
-**For fine-grained conflict detection:**
-```shell
-bash detection_xin.sh
-```
+
 
 ## 💥Evaluation：
 We also provide the relevant code for the evaluation.We also provide the relevant code for the evaluation. Please check in detail: MLLMKC/evaluation/evaluation.py.
@@ -131,9 +122,7 @@ MODEL_OUT
 |   |-- people_knowledge
 |   |-- people_knowledge
 ```
-## ⭐Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=MLLMKCBENCH/MLLMKC&type=Date)](https://www.star-history.com/#MLLMKCBENCH/MLLMKC&Date)
 
 
     
