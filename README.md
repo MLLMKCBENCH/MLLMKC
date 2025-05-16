@@ -56,36 +56,36 @@ pip install -r requirements.txt
 
 
 ## 💥Inference
-**If you want to use local model weights, download them ahead of time:** And in VLMEvalKit/vlmeval/config.py change local weight inside
+**Note: If you want to use local model weights, download them before running experiments:**, and in VLMEvalKit/vlmeval/config.py change the local weight path inside
 
-**Began to replace sh file to review the MODEL_NAME like "InternVL3-8B", name and VLMEvalKit vlmeval/config.py offer is consistent with the name of the file.**
+**Begin to replace the following .sh file to revise the MODEL_NAME like "InternVL3-8B", name and VLMEvalKit vlmeval/config.py offer is consistent with the name of the file.**
 
 For non-GPT models
 
 **For the original answer:**
 ```shell
-# MCQ
+# Mutl-choise question format
 bash start_original_mcq.sh
 
-# OpenQA
+# Open-ended question answer format 
 bash start_original_open.sh
 ```
 
 **For the internal and external conflicts answer:**
 ```shell
-# MCQ
+# Mutl-choise question format
 bash start_mcq_ie.sh
 
-# OpenQA
+# Open-ended question answer format 
 bash start_open_ie.sh
 ```
 
 **For the external and external conflicts answer:**
 ```shell
-# MCQ
+# Mutl-choise question format
 bash start_mcq_ee.sh
 
-# OpenQA
+# Open-ended question answer format 
 bash start_open_ee.sh
 ```
 
