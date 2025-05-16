@@ -12,13 +12,13 @@
 
 
 ## 🔔 News
-* **[2024.10.30]**  The **Project Page** is already on display！ [Project Page](https://mmke-bench-bigai.github.io/).
 
-* **[2024.10.25]**  **Code** is available now!
 
-* **[2024.10.25]**  We release the **MMKE-Bench dataset** at 🤗 [Huggingface Dataset](https://huggingface.co/datasets/kailinjiang/MMKE-Bench-dataset).
+* **[2025.5.16]**  **Code** is available now!
 
-* **[2023.10.25]**  We hung the **paper** on 🤗 [Huggingface Papers](https://huggingface.co/papers/2406.11194).
+* **[2025.5.16]**  We release the **MMKE-Bench dataset** at 🤗 [Huggingface Dataset](https://huggingface.co/datasets/starjyf/MLLMKC-dataset).
+
+
 
 
 ## 🌟Overview
