@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# 定义默认路径
-#实体识别的路径
+
 MODEL_NAME="InternVL3-8B"
 
 
-# 运行实体识别
 python inference.py \
     --test_dataset "ER.json" \
     --dataset_name ER \
