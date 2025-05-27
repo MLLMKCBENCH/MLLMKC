@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMKC-Bench: Benchmarking Multimodal Knowledge Conflict</title>
+
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- Bootstrap CSS (for carousel) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <style>
+    .red-brown { color: #8B0000; }
+    .hero { background-color: #f8f9fa; padding: 3rem 1.5rem; }
+    .publication-title { margin-bottom: 0.5rem; }
+    .triangle-bigai::before { content: "▲"; color: #8B0000; font-size: 0.6em; margin-right: 3px; }
+    .triangle-ustc::before { content: "▲"; color: #8B0000; font-size: 0.6em; margin-right: 3px; }
+    .triangle-pku::before { content: "▲"; color: #8B0000; font-size: 0.6em; margin-right: 3px; }
+    .triangle-bit::before { content: "▲"; color: #8B0000; font-size: 0.6em; margin-right: 3px; }
+    .link-block { display: inline-block; margin: 0 5px; }
+
+    /* Additional styles for content sections */
+    .content-section {
+      padding: 4rem 0;
+      margin: 2rem 0;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-title h2 {
+      color: #8B0000;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .quote-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5em;
+      text-align: center;
+      color: #666;
+      margin: 2rem 0;
+    }
+    .quote-author {
+      text-align: right;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2em;
+      color: #888;
+    }
+    .contribution-box {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 2rem;
+      margin: 1rem;
+      border-left: 5px solid #8B0000;
+      transition: transform 0.3s ease;
+    }
+    .contribution-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(139, 0, 0, 0.1);
+    }
+    .contribution-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+    .result-section {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .carousel-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .team-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .team-logo {
+      height: 80px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+    .team-logo:hover {
+      transform: scale(1.1);
+    }
+    .footer-section {
+      background: #2c3e50;
+      color: white;
+      padding: 3rem 0 1rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title is-bold">
+              <img src="EVOKE/img/MMKC.png" style="width:2em; vertical-align: middle" alt="Logo"/>
+              <span class="MMKE-Bench" style="vertical-align: middle; color: #8B0000;">MMKC-Bench</span>
+            </h1>
+            <h2 class="subtitle is-3 publication-subtitle" style="color: black;">
+              Benchmarking Multimodal Knowledge Conflict for Large Multimodal Models
+            </h2>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://sdujyf.github.io/" class="red-brown">Yifan Jia*</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://kailinjiang.github.io/" class="red-brown">Kailin Jiang*</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" class="red-brown">Yuyang Liang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://nebularaid2000.github.io/" class="red-brown">Qihan Ren</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" class="red-brown">Yi Xin</a><sup>4</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" class="red-brown">Rui Yang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" class="red-brown">Fenze Feng</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" class="red-brown">Mingcai Chen</a><sup>5</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" class="red-brown">Hengyang Lu</a><sup>6</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" class="red-brown">Haozhe Wang</a><sup>7</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" class="red-brown">Xiaoye Qu</a><sup>8</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" class="red-brown">Dongrui Liu</a><sup>8</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" class="red-brown">Lizhen Cui</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://yuntaodu.github.io/" class="red-brown">Yuntao Du</a><sup>1📧</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block triangle-bigai"><sup>1</sup>Shandong University</span>
+              <span class="author-block triangle-ustc"><sup>2</sup>University of Science and Technology of China</span>
+              <span class="author-block triangle-pku"><sup>3</sup>Shanghai Jiaotong University</span>
+              <span class="author-block triangle-bit"><sup>4</sup>Nanjing University</span>
+              <span class="author-block triangle-bit"><sup>5</sup>Nanjing University of Posts and Telecommunications</span>
+              <span class="author-block triangle-bit"><sup>6</sup>Jiangnan University</span>
+              <span class="author-block triangle-bit"><sup>7</sup>The Hong Kong University of Science and Technology</span>
+              <span class="author-block triangle-bit"><sup>8</sup>Shanghai AI Laboratory</span>
+            </div>
+
+            <br>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">*Core Contributors</span><br>
+              <span class="author-block">📧Corresponding to:</span>
+              <span class="author-block">
+                <a href="mailto:yuntaodu@sdu.edu.cn">yuntaodu@sdu.edu.cn</a>
+              </span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2505.19509" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/starjyf/MLLMKC-datasets" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon" style="font-size:18px">🤗</span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/MLLMKCBENCH/MLLMKC" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Slides</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+            <div class="has-text-centered" style="margin-top: 1rem; color: #666;">
+              <!-- <small>Last updated: May 27, 2025 (乙巳年五月初一)</small> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Background Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Background</h2>
+      </div>
+
+      <p class="quote-text">
+        "The tsunami of knowledge washes over the old shores, and new islands rise on the crest of the waves of debate."
+      </p>
+      <p class="quote-author">
+        – Knowledge Conflict
+      </p>
+
+      <div class="has-text-centered" style="margin: 3rem 0;">
+        <img src="EVOKE/img/DATA.png"
+             class="image" alt="Data Overview" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction Section -->
+  <section class="content-section" style="background-color: #fafafa;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Introduction</h2>
+      </div>
+
+      <div class="content">
+        <p style="font-size: 1.2rem; line-height: 1.8; text-align: justify; margin-bottom: 2rem;">
+          Large Multimodal Models (LMMs) face notable challenges when encountering multimodal knowledge conflicts, particularly under retrieval-augmented generation (RAG) frameworks, where the contextual information from external sources may contradict the model's internal parametric knowledge, leading to unreliable outputs. However, existing benchmarks fail to reflect such realistic conflict scenarios. Most focus solely on intra-memory conflicts, while context-memory and inter-context conflicts remain largely investigated. Furthermore, commonly used factual knowledge-based evaluations are often overlooked, and existing datasets lack a thorough investigation into conflict detection capabilities.
+        </p>
+
+        <p style="font-size: 1.2rem; line-height: 1.8; text-align: justify;">
+          To bridge this gap, we propose <span style="color:red">MMKC-Bench</span>, a benchmark designed to evaluate factual knowledge conflicts in both context-memory and inter-context scenarios. MMKC-Bench encompasses three types of multimodal knowledge conflicts and includes <span style="color:red">1,573 knowledge instances</span> and <span style="color:red">3,381 images across 23 broad types</span>, collected through automated pipelines with human verification. We evaluate three representative series of LMMs on both model behavior analysis and conflict detection tasks. Our findings show that while current LMMs are capable of recognizing knowledge conflicts, they tend to favor internal parametric knowledge over external evidence. We hope <span style="color:red">MMKC-Bench</span> will foster further research in multimodal knowledge conflict and enhance the development of multimodal RAG systems.
+        </p>
+      </div>
+
+      <!-- Contributions -->
+      <div class="columns is-multiline" style="margin-top: 3rem;">
+        <div class="column is-4">
+          <div class="contribution-box">
+            <img src="EVOKE/img/compliant.png" alt="Contribution 1" class="contribution-icon">
+            <h4 style="color: #8B0000; font-weight: 600; margin-bottom: 1rem;">Contribution 1</h4>
+            <p>We propose MMKC-Bench, a multimodal knowledge conflict benchmark focusing on factual knowledge conflict under both context-memory and inter-context scenarios.</p>
+          </div>
+        </div>
+
+        <div class="column is-4">
+          <div class="contribution-box">
+            <img src="EVOKE/img/framework-1.png" alt="Contribution 2" class="contribution-icon">
+            <h4 style="color: #8B0000; font-weight: 600; margin-bottom: 1rem;">Contribution 2</h4>
+            <p>We propose a novel pipeline to construct the benchmark that collects original knowledge, generates conflict knowledge and produce evaluation with two question formats.</p>
+          </div>
+        </div>
+
+        <div class="column is-4">
+          <div class="contribution-box">
+            <img src="EVOKE/img/research.png" alt="Contribution 3" class="contribution-icon">
+            <h4 style="color: #8B0000; font-weight: 600; margin-bottom: 1rem;">Contribution 3</h4>
+            <p>Extensive experiments with various models under both context-memory and inter-context for behavior understanding and conflict detection are conducted, revealing several characteristics of existing LMMs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benchmark Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Multimodal LLM Knowledge Conflicts Benchmark</h2>
+      </div>
+
+      <p style="font-size: 1.2rem; text-align: justify; margin-bottom: 2rem;">
+        MMKC-Bench encompasses three types of multimodal knowledge conflicts and includes 1,573 knowledge instances and 3,381 images across 23 broad types, collected through automated pipelines with human verification.
+      </p>
+
+      <div style="text-align: center; margin: 2rem 0;">
+  <img src="EVOKE/img/1910.png" alt="Benchmark Overview" style="max-width: 40%; height: auto;">
+</div>
+
+      <p style="font-size: 1.2rem; text-align: justify; margin: 2rem 0;">
+        The overall process of constructing the MMKC benchmark. (a) First, obtain high-quality entity categories and instances. (b) Then collect raw data from Wikipedia and filter popular content. (c) Second, use GPT-4o to generate summaries of the text content of the raw data. (d) Subsequently, download images of the query instances from Google and manually filter the images. (e) Finally, we use GPT-4o to generate counterfactual conflict knowledge and generate corresponding questions.
+      </p>
+
+       <div style="text-align: center; margin: 2rem 0;">
+  <img src="EVOKE/img/KK.png" alt="Benchmark Overview" style="max-width: 100%; height: auto;">
+  </div>
+  </section>
+
+  <!-- Experimental Results -->
+  <section class="content-section" style="background-color: #fafafa;">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Experimental Results</h2>
+      </div>
+
+      <!-- Result 1 -->
+      <div class="result-section">
+        <h3 style="color: #8B0000; font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">
+         1. MLMMs are more receptive to internal knowledge than to external evidence
+        </h3>
+        <p style="font-size: 1.2rem; text-align: justify; margin: 2rem 0;">
+         As shown in Table 2 and Table3, under context-memory conflicts, the average OAR exceeds CAR in all cases (6 out of 6), indicating that LMMs tend to favor internal knowledge. Closed-source GPT-4o mini shows consistent results with open-source models, suggesting that even advanced closed models are insensitive to external evidence. This differs from LLMs, which have shown high receptiveness to external knowledge. One reason for this contrast is the difference in training data formats: LLMs are typically trained on long text contexts involving multiple information sources, while LMMs are mostly trained on isolated image-text pairs. This limits their exposure to multi-source contexts and reduces their ability to integrate external information during inference.This finding is important for designing multimodal RAG systems, as it reveals that LMMs may not naturally leverage retrieved evidence and instead rely on parametric knowledge. Thus, improving LMMs’ ability to incorporate external information is important, which may require innovations in training paradigms and model architecture.
+      </p>
+        <div style="text-align: center; margin: 2rem 0;">
+  <img src="EVOKE/img/result1.png" alt="Benchmark Overview" style="max-width: 100%; height: auto;">
+  </div>
+      </div>
+      <div class="result-section">
+        <h3 style="color: #8B0000; font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">
+        2. MLMMs are more sensitive to knowledge-related conflicts and less sensitive to recognition-based conflicts
+        </h3>
+        <p style="font-size: 1.2rem; text-align: justify; margin: 2rem 0;">
+         We group the three conflict types into recognition-based (entity recognition, visual semantics) and knowledge-related (entity knowledge). LMMs show lower OARs on knowledge-related conflicts than of recognition-based conflicts, indicating greater sensitivity to factual inconsistencies.  For example, entity recognition conflicts yield an OAR as low as 0.26 on Qwen2.5-VL-7B. While entity recognition conflicts often show the highest OARs, suggesting LMMs more easily rely on internal knowledge for perception tasks.
+      </p>
+
+      </div>
+
+
+      <!-- Result 2 -->
+      <div class="result-section">
+        <h3 style="color: #8B0000; font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">
+        3. When provided with more external evidence, LMMs exhibit greater alignment with external information, though the improvement remains limited
+        </h3>
+        <p style="font-size: 1.2rem; text-align: justify; margin: 2rem 0;">
+         Compared to context-memory conflict scenarios, models generally achieve higher CARs under inter-context conflicts, suggesting a slight increase in reliance on external evidence. This is because, given more internal information, the model output would be affected more. However, the overall improvement is limited: the largest increase in CAR is 21% on average, while the smallest average improvement is only about -2%. These results reaffirm that LMMs predominantly rely on their internal parametric knowledge, even when presented with multiple external sources.
+      </p>
+
+      </div>
+
+      <!-- Result 3 -->
+      <div class="result-section">
+        <h3 style="color: #8B0000; font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">
+        4. Larger models exhibit a stronger promoting effect across all conflict types
+        </h3>
+        <p style="font-size: 1.2rem; text-align: justify; margin: 2rem 0;">
+        As illustrated in Fig.4 and Fig.5, the Overall Agreement Rate (OAR) generally increases with model size within the Qwen2.5-VL series. Specifically, the OAR improves progressively as the model scales from 3B to 7B, 13B, and 70B, reflecting gains across entity recognition conflict, entity knowledge conflict, and visual semantic conflict. This trend suggests that larger models are more strongly influenced by their internal knowledge.  This enhanced capability may stem from exposure to more extensive training data, enabling larger models to develop stronger mechanisms for resolving conflicts.
+        </p>
+        <div style="text-align: center; margin: 2rem 0;">
+  <img src="EVOKE/img/result2.png" alt="Benchmark Overview" style="max-width: 100%; height: auto;">
+  </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Case Study Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Case Study</h2>
+      </div>
+
+      <div class="carousel-container">
+        <div id="caseStudyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="EVOKE/img/case1.png"
+                   alt="Case 1" class="d-block w-90">
+            </div>
+            <div class="carousel-item">
+              <img src="EVOKE/img/case2.png"
+                   alt="Case 2" class="d-block w-90">
+            </div>
+            <div class="carousel-item">
+              <img src="EVOKE/img/case3.png"
+                   alt="Case 3" class="d-block w-90">
+            </div>
+            <div class="carousel-item">
+              <img src="EVOKE/img/case5.png"
+                   alt="Case 4" class="d-block w-90">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#caseStudyCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#caseStudyCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="content-section" style="background-color: #fafafa;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Team</h2>
+      </div>
+
+      <div class="team-logos">
+        <img src="EVOKE/logo/sdu.jpg" alt="SDU" class="team-logo">
+        <img src="EVOKE/logo/ustc.png" alt="USTC" class="team-logo">
+        <img src="EVOKE/logo/shanghai-jiao-tong-university.png" alt="SJTU" class="team-logo">
+        <img src="EVOKE/logo/nanjing.jpg" alt="NJU" class="team-logo">
+        <img src="EVOKE/logo/OIP.jpg" alt="NJUPT" class="team-logo">
+        <img src="EVOKE/logo/UST_C3.jpg" alt="JNU" class="team-logo">
+        <img src="EVOKE/logo/OIP (1).jpg" alt="HKUST" class="team-logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half">
+          <h3 style="color: #8B0000; font-size: 1.5rem; margin-bottom: 1rem;">MMKC-Bench</h3>
+          <p style="margin-bottom: 1rem;">Benchmarking Multimodal Knowledge Conflict for Large Multimodal Models</p>
+          <p><strong>Contact:</strong></p>
+          <p>Yuntao Du: <a href="mailto:yuntaodu@sdu.edu.cn" style="color: #8B0000;">yuntaodu@sdu.edu.cn</a></p>
+        </div>
+        <div class="column is-half">
+          <h4 style="color: #8B0000; margin-bottom: 1rem;">Useful Links</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.5rem;"><a href="https://arxiv.org/abs/2505.19509" style="color: white;">📄 Paper</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="https://huggingface.co/datasets/starjyf/MLLMKC-datasets" style="color: white;">🤗 Dataset</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="https://github.com/MLLMKCBENCH/MLLMKC" style="color: white;">💻 Code</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: white;">📊 Slides</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr style="border-color: #444; margin: 2rem 0 1rem;">
+      <div class="has-text-centered">
+        <p>&copy; 2025 <strong>MMKC-Bench</strong>. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top button -->
+  <a href="#" id="scroll-top" style="position: fixed; bottom: 30px; right: 30px; background: #8B0000; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; opacity: 0.7; z-index: 1000;">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Show/hide scroll to top button
+    window.addEventListener('scroll', function() {
+      const scrollTop = document.getElementById('scroll-top');
+      if (window.pageYOffset > 100) {
+        scrollTop.style.display = 'flex';
+      } else {
+        scrollTop.style.display = 'none';
+      }
+    });
+
+    // Scroll to top functionality
+    document.getElementById('scroll-top').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>
